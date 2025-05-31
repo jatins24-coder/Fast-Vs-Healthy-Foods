@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fast Food vs Healthy Food - Comprehensive Analysis</title>
+<style>
+  /* Reset & base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #222;
+    line-height: 1.6;
+  }
+  a {
+    color: #0088cc;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header {
+    background: #1a202c;
+    color: #fff;
+    padding: 1.8rem 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+  nav {
+    margin-top: 0.6rem;
+  }
+  nav a {
+    margin: 0 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #63b3ed;
+  }
+  section {
+    max-width: 960px;
+    margin: 3rem auto;
+    padding: 0 1.2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  section h2 {
+    margin-bottom: 1.3rem;
+    color: #2d3748;
+    border-bottom: 3px solid #3182ce;
+    padding-bottom: 0.4rem;
+    font-weight: 700;
+  }
+  .content-block {
+    margin-bottom: 3rem;
+  }
+  .two-columns {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .column {
+    flex: 1 1 45%;
+  }
+  p {
+    margin-bottom: 1.1rem;
+    font-size: 1.05rem;
+  }
+  ul {
+    margin-left: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  ul li {
+    margin-bottom: 0.65rem;
+    font-size: 1rem;
+  }
+  .highlight {
+    background-color: #e6fffa;
+    border-left: 6px solid #38b2ac;
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #2c7a7b;
+    font-size: 1.1rem;
+  }
+  /* Charts container */
+  .chart-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 2.8rem auto 3rem;
+  }
+  /* Hover effect */
+  .hover-box {
+    padding: 1.4rem 1.6rem;
+    background: #edf2f7;
+    border-radius: 8px;
+    transition: background-color 0.35s ease;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .hover-box:hover {
+    background-color: #bee3f8;
+  }
+  /* Footer */
+  footer {
+    background: #1a202c;
+    color: white;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    margin-top: 5rem;
+    font-size: 0.95rem;
+  }
+  /* Animations */
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .animated {
+    animation-duration: 1.2s;
+    animation-fill-mode: both;
+    animation-name: fadeInUp;
+  }
+  /* Responsive */
+  @media(max-width: 768px){
+    .two-columns {
+      flex-direction: column;
+    }
+    .column {
+      flex-basis: 100%;
+    }
+    nav a {
+      margin: 0 8px;
+      font-size: 0.95rem;
+    }
+  }
+  /* Images */
+  .section-image {
+    display: block;
+    margin: 1.5rem auto 2rem;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  }
+  /* Counters */
+  .counter-section {
+    background: #38a169;
+    color: white;
+    padding: 3rem 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 4rem 0;
+  }
+  .counter {
+    font-size: 3.5rem;
+    font-weight: 800;
+  }
+  .counter-label {
+    margin-top: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Fast Food vs Healthy Food</h1>
+  <nav>
+    <a href="#industry">Industry Overview</a>
+    <a href="#contamination">Contamination</a>
+    <a href="#health-impact">Health Impact</a>
+    <a href="#future-trends">Future Trends</a>
+    <a href="#comparison">Comparison</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#case-studies">Case Studies</a>
+    <a href="#statistics">Statistics</a>
+  </nav>
+</header>
+
+<section id="industry" class="animated">
+  <h2>Fast Food Industry Overview</h2>
+  <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80" alt="Fast food meal" class="section-image" />
+  <p>The global fast food industry, valued at over $650 billion annually, thrives on convenience, speed, and affordability. Major brands like McDonald's, KFC, and Subway serve millions daily, emphasizing quick service and standardized menus worldwide.</p>
+  <p>Conversely, the healthy food market has surged to over $160 billion, driven by rising awareness of nutrition, sustainability, and wellness trends. Consumers increasingly demand organic, plant-based, and minimally processed options.</p>
+</section>
+
+<section id="contamination" class="animated">
+  <h2>Food Contamination Risks</h2>
+  <img src="food-contamination.jpg" alt="Food contamination" class="section-image" />
+  <p>Fast foods are often prepared in large batches with high turnover, raising concerns about contamination by bacteria such as <em>Salmonella</em>, <em>E.coli</em>, and <em>Listeria</em>. Cross-contamination and improper temperature control increase foodborne illness risk.</p>
+  <p>Healthy foods, especially fresh produce, carry contamination risks from pesticides, soil microbes, or improper washing, but proper sourcing and hygiene generally minimize dangers.</p>
+  <div class="highlight">
+    <strong>Important:</strong> Studies show fast food-related foodborne illnesses account for nearly 25% of all reported cases in the US annually.
+  </div>
+
+  <div class="chart-container">
+    <canvas id="contaminationChart"></canvas>
+  </div>
+  <p style="font-style: italic; text-align:center; font-size: 0.9rem;">Chart: Breakdown of common food contamination types linked to fast food consumption.</p>
+</section>
+
+<section id="health-impact" class="animated">
+  <h2>Health Impact</h2>
+  <div class="two-columns">
+    <div class="column">
+      <h3>Fast Food</h3>
+      <ul>
+        <li>Typically high in saturated fats, trans fats, sodium, and sugars.</li>
+        <li>Regular consumption is linked to obesity, type 2 diabetes, heart disease, hypertension, and metabolic syndrome.</li>
+        <li>Often calorie-dense but low in essential nutrients like fiber, vitamins, and minerals.</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Healthy Food</h3>
+      <ul>
+        <li>Rich in fiber, antioxidants, vitamins (A, C, D, E), minerals (magnesium, potassium).</li>
+        <li>Supports cardiovascular health, weight management, cognitive function, and immunity.</li>
+        <li>Includes whole fruits, vegetables, nuts, seeds, whole grains, lean proteins, and healthy fats like omega-3s.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="future-trends" class="animated">
+  <h2>Future Trends in Food Consumption</h2>
+  <p>Innovation and awareness are driving changes in the global food landscape:</p>
+  <ul>
+    <li><strong>Plant-Based Revolution:</strong> Alternative proteins from peas, soy, and lab-grown meats are gaining mainstream traction.</li>
+    <li><strong>Organic and Local:</strong> Consumers prefer organic, pesticide-free, and locally sourced foods for better health and environmental impact.</li>
+    <li><strong>Technology-Driven Nutrition:</strong> AI and apps personalize diets; blockchain improves supply chain transparency.</li>
+    <li><strong>Eco-conscious Packaging:</strong> Biodegradable and reusable packaging reduce waste, aligning with sustainability goals.</li>
+  </ul>
+  <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Healthy salad bowl" class="section-image" />
+</section>
+
+<section id="comparison" class="animated">
+  <h2>Fast Food vs Healthy Food: Side-by-Side Comparison</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse; font-size: 1rem;">
+    <thead style="background: #3182ce; color: white;">
+      <tr>
+        <th>Aspect</th>
+        <th>Fast Food</th>
+        <th>Healthy Food</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Preparation Time</td>
+        <td>Minutes</td>
+        <td>Minutes to hours</td>
+      </tr>
+      <tr>
+        <td>Nutrition</td>
+        <td>High calories, low nutrients</td>
+        <td>Balanced macro and micronutrients</td>
+      </tr>
+      <tr>
+        <td>Cost</td>
+        <td>Usually cheaper per serving</td>
+        <td>Often more expensive due to quality</td>
+      </tr>
+      <tr>
+        <td>Health Impact</td>
+        <td>Risk of chronic diseases</td>
+        <td>Supports long-term health</td>
+      </tr>
+      <tr>
+        <td>Environmental Impact</td>
+        <td>Higher carbon footprint, packaging waste</td>
+        <td>Lower footprint, eco-friendly sourcing</td>
+      </tr>
+      <tr>
+        <td>Flavor Profile</td>
+        <td>Often salty, sweet, fatty</td>
+        <td>Fresh, natural, varied</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="benefits" class="animated">
+  <h2>Benefits of Healthy Food</h2>
+  <p>Eating healthy foods regularly provides numerous benefits:</p>
+  <ul>
+    <li>Improved digestion and gut health.</li>
+    <li>Stronger immune system and reduced inflammation.</li>
+    <li>Better mental health and reduced risk of depression.</li>
+    <li>Increased energy levels and better sleep quality.</li>
+    <li>Longevity and reduced risk of chronic diseases.</li>
+  </ul>
+  <div class="highlight">"Your diet is the single most important factor in your long-term health." — Nutrition Experts</div>
+</section>
+
+<section id="case-studies" class="animated">
+  <h2>Case Studies</h2>
+  <div class="hover-box" title="Case Study 1">
+    <h3>Case Study 1: Impact of Fast Food on Urban Health</h3>
+    <p>A 5-year study of 1,200 urban adults in New York City found those consuming fast food more than 4 times per week had a 30% higher risk of developing metabolic syndrome compared to those with minimal fast food intake.</p>
+  </div>
+  <div class="hover-box" title="Case Study 2">
+    <h3>Case Study 2: Benefits of Plant-Based Diets</h3>
+    <p>A clinical trial involving 300 participants showed a 25% decrease in LDL cholesterol and 15% reduction in body weight after 12 months on a strictly plant-based diet.</p>
+  </div>
+</section>
+
+<section id="statistics" class="animated">
+  <h2>Statistics & Real-Life Examples</h2>
+
+  <div class="counter-section">
+    <div>
+      <div class="counter" data-target="650">0</div>
+      <div class="counter-label">Billion USD: Fast Food Industry Revenue (Global)</div>
+    </div>
+    <div style="margin-top: 2rem;">
+      <div class="counter" data-target="160">0</div>
+      <div class="counter-label">Billion USD: Healthy Food Market</div>
+    </div>
+    <div style="margin-top: 2rem;">
+      <div class="counter" data-target="25">0</div>
+      <div class="counter-label">Percent: Foodborne Illnesses from Fast Food</div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="nutritionChart"></canvas>
+  </div>
+  <p style="font-style: italic; text-align:center; font-size: 0.9rem;">Chart: Average nutritional content comparison (per 100g) of fast food vs healthy food.</p>
+</section>
+
+<footer>
+  &copy; 2025 Fast Food vs Healthy Food| Created By Gaurav & Jatin| All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Fade-in on scroll
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {threshold: 0.15});
+  sections.forEach(section => observer.observe(section));
+
+  // Counter Animation
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 200;
+
+      if(count < target){
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 15);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+
+  // Contamination Chart
+  const ctx1 = document.getElementById('contaminationChart').getContext('2d');
+  const contaminationChart = new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+      labels: ['Bacterial Contamination', 'Cross Contamination', 'Temperature Abuse', 'Chemical Contamination', 'Viral Contamination'],
+      datasets: [{
+        label: 'Contamination Sources',
+        data: [40, 25, 20, 10, 5],
+        backgroundColor: [
+          '#e53e3e',
+          '#dd6b20',
+          '#d69e2e',
+          '#38a169',
+          '#3182ce'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 14 } }
+        },
+        title: {
+          display: true,
+          text: 'Fast Food Contamination Sources',
+          font: { size: 18, weight: 'bold' }
+        }
+      }
+    }
+  });
+
+  // Nutrition Comparison Chart
+  const ctx2 = document.getElementById('nutritionChart').getContext('2d');
+  const nutritionChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Calories', 'Fat (g)', 'Sodium (mg)', 'Sugar (g)', 'Fiber (g)', 'Protein (g)'],
+      datasets: [
+        {
+          label: 'Fast Food',
+          data: [290, 15, 730, 9, 1, 12],
+          backgroundColor: 'rgba(229, 62, 62, 0.7)'
+        },
+        {
+          label: 'Healthy Food',
+          data: [180, 5, 150, 5, 7, 15],
+          backgroundColor: 'rgba(56, 161, 105, 0.7)'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Nutritional Content per 100g',
+          font: { size: 18, weight: 'bold' }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
